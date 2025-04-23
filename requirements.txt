@@ -1,0 +1,4 @@
+fastapi
+fastapi[standard]
+jinja2
+dotenv

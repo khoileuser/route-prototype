@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Map Route</title>
+        <script src="https://maps.googleapis.com/maps/api/js?key={{ MAPS_TOKEN }}&libraries=places&loading=async"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <script src="https://cdn.jsdelivr.net/npm/rbush@3.0.0/rbush.min.js"></script>
+    </head>
+    <body>
+        <div class="flex">
+            <div class="flex flex-col w-1/4 bg-gray-100 justify-center">
+                <div class="flex flex-col p-6 gap-4 bg-gray-100 items-center">
+                    <p class="text-lg font-semibold text-gray-700">Route</p>
+                    <input
+                        id="pickup"
+                        placeholder="Pickup location"
+                        class="w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                    />
+                    <input
+                        id="destination"
+                        placeholder="Destination"
+                        class="w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                    />
+                    <div class="flex flex-row gap-2 w-full">
+                        <button
+                            onclick="clearRoutes()"
+                            class="flex-1 px-4 py-2 bg-red-50 text-red-600 border border-red-200 rounded-md hover:bg-red-100 transition-colors"
+                        >
+                            Clear Routes
+                        </button>
+                        <button
+                            onclick="addRoute()"
+                            class="flex-1 px-4 py-2 bg-blue-50 text-blue-600 border border-blue-200 rounded-md hover:bg-blue-100 transition-colors"
+                        >
+                            Add Route
+                        </button>
+                    </div>
+                    <button
+                        onclick="optimizeRoutes('line-hash')"
+                        class="w-full px-4 py-2 bg-green-50 text-green-600 border border-green-200 rounded-md hover:bg-green-100 transition-colors"
+                    >
+                        Combine Routes (Line Hash)
+                    </button>
+                    <button
+                        onclick="optimizeRoutes('r-tree')"
+                        class="w-full px-4 py-2 bg-green-50 text-green-600 border border-green-200 rounded-md hover:bg-green-100 transition-colors"
+                    >
+                        Combine Routes (R-Tree)
+                    </button>
+                    <button
+                        onclick="optimizeRoutes('graph-based')"
+                        class="w-full px-4 py-2 bg-green-50 text-green-600 border border-green-200 rounded-md hover:bg-green-100 transition-colors"
+                    >
+                        Combine Routes (Graph-based)
+                    </button>
+                </div>
+            </div>
+            <div id="map" style="height: 100vh; width: 100%"></div>
+        </div>
+        <script src="/static/script.js"></script>
+    </body>
+</html>
