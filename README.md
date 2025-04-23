@@ -1,6 +1,6 @@
 # route-prototype
 
-Prototype for Displaying Routes and Combine Routes for De Heus Vehicle Booking App
+Prototype for Displaying and Combining Routes for De Heus Vehicle Booking App
 
 ## Config
 
