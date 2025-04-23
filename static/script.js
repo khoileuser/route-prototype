@@ -1,3 +1,24 @@
+function initializeWithApiKey() {
+    const apiKey = document.getElementById("apiKeyInput").value.trim()
+    if (!apiKey) {
+        alert("Please enter a valid API key")
+        return
+    }
+
+    // Create and append the Google Maps script with the provided API key
+    const script = document.createElement("script")
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&callback=initMap`
+    script.async = true
+    script.defer = true
+
+    script.onerror = function () {
+        alert("Failed to load Google Maps. Please check your API key.")
+    }
+
+    document.getElementById("mapsScriptContainer").appendChild(script)
+    document.getElementById("apiKeyOverlay").style.display = "none"
+}
+
 let map, directionsService, directionsRenderer
 let routePolylines = []
 let routePairs = []
