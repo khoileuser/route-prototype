@@ -35,6 +35,7 @@ function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
         center: defaultLocation,
         zoom: 13,
+        mapId: "123",
     })
 
     directionsRenderer.setMap(map)
@@ -47,15 +48,10 @@ function initMap() {
                     lng: position.coords.longitude,
                 }
 
-                new google.maps.Marker({
-                    position: userLocation,
-                    map: map,
-                    title: "You are here!",
-                })
-
-                new AdvancedMarkerElement({
+                const marker = new google.maps.marker.AdvancedMarkerElement({
                     map,
                     position: userLocation,
+                    title: "You are here!",
                 })
 
                 map.setCenter(userLocation)
