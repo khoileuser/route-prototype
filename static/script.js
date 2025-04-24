@@ -7,7 +7,7 @@ function initializeWithApiKey() {
 
     // Create and append the Google Maps script with the provided API key
     const script = document.createElement("script")
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&callback=initMap`
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&callback=initMap&loading=async`
     script.async = true
     script.defer = true
 
