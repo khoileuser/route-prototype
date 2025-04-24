@@ -46,6 +46,13 @@ function initMap() {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude,
                 }
+
+                new google.maps.Marker({
+                    position: userLocation,
+                    map: map,
+                    title: "You are here!",
+                })
+
                 map.setCenter(userLocation)
 
                 const pickupInput = document.getElementById("pickup")
