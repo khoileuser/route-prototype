@@ -7,7 +7,7 @@ function initializeWithApiKey() {
 
     // Create and append the Google Maps script with the provided API key
     const script = document.createElement("script")
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&callback=initMap&loading=async`
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&libraries=marker&callback=initMap&loading=async`
     script.async = true
     script.defer = true
 
@@ -51,6 +51,11 @@ function initMap() {
                     position: userLocation,
                     map: map,
                     title: "You are here!",
+                })
+
+                new AdvancedMarkerElement({
+                    map,
+                    position: userLocation,
                 })
 
                 map.setCenter(userLocation)
