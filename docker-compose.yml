@@ -1,6 +1,6 @@
 services:
     app:
-        container_name: matchworks-server
+        container_name: route-prototype
         build:
             context: .
             dockerfile: Dockerfile
