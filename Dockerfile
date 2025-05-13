@@ -5,10 +5,7 @@ WORKDIR /route-prototype
 COPY . /route-prototype
 
 # Install dependencies
-RUN npm ci
-
-# Build the application
-RUN npm run build
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose the port
 EXPOSE 8000
